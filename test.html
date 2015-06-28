@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+<body onload = "startTime()">
+<div id = "txt"></div>
+<div><button onclick="oneTing()">check it.</button></div>
+<!-- <button id="ting11">浏览器尺寸</button> -->
+<p id = "ting11"></p>
+
+
+
+<script type="text/javascript">
+var w = window.innerWidth
+|| document.documentElement.clientWidth
+|| document.body.clientWidth;
+
+var h = window.innerHeight
+|| document.documentElement.clientHeight
+|| document.body.clientHeight;
+
+x = document.getElementById("ting11");
+x.innerHTML = ("宽度" + w + "," + "高度" + h + "。" + "<br>");
+
+
+
+
+
+
+document.write(Math.round(2.61) + "<br>");
+document.write(Math.random(2.10) + "<br>");
+document.write(Math.min(2.4,8) + "<br>");
+document.write(Math.floor(Math.random() * 10) + "<br>");
+
+var ting10 = new RegExp("e");
+document.write(ting10.test("The best things in life are free.") + "<br>");
+document.write(ting10.exec("The best things in life are free.") + "<br>");
+
+
+
+
+function oneTing()
+{
+var myDate = new Date();
+myDate.setFullYear(2015,06,10);
+var today = new Date();
+if (myDate > today) 
+{
+	alert("Today is before myDate.");
+}
+else
+{
+	alert("Today is after myDate.");
+}
+}
+
+var a1 = new Boolean("fa");
+var b1 = new Boolean(null);
+document.write(a1 + "<br>");
+document.write(b1 + "<br>");
+if (a1.constructor == Boolean)
+{
+	document.write("This is a Boolean" + "<br>");
+}
+
+var str = "what a happy day!";
+document.write(str.indexOf("a") + "<br>");
+document.write(str.indexOf("llo") + "<br>");
+document.write(str.indexOf("hello") + "<br>");
+
+var str = "what a happy day!";
+document.write(str.replace(/a/,"b") + "<br>");
+
+document.write(Date() + "<br>");
+
+var mycars = new Array(1);
+mycars[0] = "BWM";
+mycars[1] = "保时捷";
+mycars[2] = "奔驰";
+// document.write(mycars + "<br>");
+// for (i=0; i<mycars.length; i++)
+// {
+// 	document.write(mycars[i] + "<br>")
+// }
+document.write(mycars.join() + "<br>");
+document.write("<br>");
+document.write(mycars.join("*") + "<br>");
+
+var fivename = new Array();
+fivename[0] = "George";
+fivename[1] = "Thomas";
+fivename[2] = "Orange";
+fivename[3] = "Adrew";
+fivename[4] = "Marry";
+fivename[5] = "John";
+document.write(fivename + "<br>");
+document.write(fivename.sort() + "<br>");
+
+
+var youcars = new Array("BWM","奔驰","保时捷");
+// document.write(youcars + "<br>");
+var q;
+for (q in youcars)
+{
+	document.write(youcars[q] + " ");
+}
+// document.write(mycars.concat(youcars));
+
+
+var d = new Date();
+var weekday = new Array(7);
+weekday[0] = "星期天";
+weekday[1] = "星期一";
+weekday[2] = "星期二";
+weekday[3] = "星期三";
+weekday[4] = "星期四";
+weekday[5] = "星期五";
+weekday[6] = "星期六";
+document.write("<p>" + "Today is " + weekday[d.getDay()] + "</p>");
+document.write("<p>" + d.getDay() + "</p>");
+
+function startTime () 
+{
+var today = new Date()
+var h = today.getHours()
+var m = today.getMinutes()
+var s = today.getSeconds()
+m = checkTime(m)
+s = checkTime(s)
+document.getElementById('txt').innerHTML = h + ":" + m + ":" + s
+t = setTimeout('startTime()',500)
+}
+function checkTime (i) 
+{
+	if (i<10) 
+	{
+		i = "0" + i
+	}
+	return i
+}
+
+
+
+
+
+// document.write("<p>" + d.toUTCString() + "</p>");
+// d.setFullYear(1990,05,27)
+// document.write(d + "<br>")
+
+// var d = new Date()
+// d.setFullYear(1992,10,3)
+// document.write(d)
+
+
+var txt = "shopping";
+document.write("Link: " + txt.link("http:www.taobao.com") + "<br>");
+document.write("<p> How can I shopping" + txt.fontsize(20) + "</p>")
+
+// person = new Object();
+// person.firstname = "tingting";
+// person.lastname = "zheng";
+// person.age = "18";
+// person.telnum = "13450367911";
+// person.eyecolor = "grey";
+
+// person = {firstname:"tingting", lastname:"zheng", age:"18"};
+
+function person (firstname,lastname,age,telnum,eyecolor) 
+{
+	this.firstname = firstname;
+	this.lastname = lastname;
+	this.age = age;
+	this.telnum = telnum;
+	this.eyecolor = eyecolor;
+
+// 	this.changeName = changeName;
+// 	function changeName (name) 
+// {
+// 	this.lastname = name;
+// }
+
+}
+
+var message = "Hello 2t.";
+// var z = message.length;
+var z = message.toUpperCase();
+document.write(z + "<br>");
+
+var myfather = new person ("qiuzheng", "zheng", "40", "123", "grey");
+var mymother = new person ("tao", "xue", "40", "321", "grey");
+// mymother.changeName("I love mymother");
+// myfather.changeName("I love myfather");
+// document.write(mymother.lastname + "<br>");
+// document.write(myfather.lastname + "<br>");
+
+
+person.prototype.saly = null;
+mymother.saly = "160cm";
+document.write(mymother.saly + "<br>"); 
+// 向对象添加属性。
+
+var x;
+var txt = "";
+for (x in mymother)
+{
+	txt = txt + mymother[x] + " ";
+}
+document.write(txt + "<br>");
+
+document.write(myfather.firstname + " is " + myfather.age + " year olds" + "<br>");
+document.write(mymother.firstname + " is " + mymother.age + " year olds" + "<br>");
+
+
+var x;
+document.write("<p>只有 17 位: ");
+x=12345678901234567890;
+document.write(x + "</p>");
+
+document.write("<p>0.2 + 0.1 = ");
+x=0.2+0.1;
+document.write(x + "</p>");
+
+document.write("<p>可分别乘以 10 并除以 10 : ");
+x=(0.2*10+0.1*10)/10;
+document.write(x +"</p>");
+//需了解“溢出”。
+
+
+
+</script>
+
+</body>
+</head>
+</html>
+
+
+
