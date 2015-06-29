@@ -1,24 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+<!-- 使输出中文问UTF-8格式，不会出现中文乱码。 -->
+
 <script src="jquery/jquery-1.11.3.js"></script>
 <script type="text/javascript">
 $(document).ready(function()
 {
 	$("#btn1").click(function()
 	{
-		// alert("Text: " + $("#test").text());
+		alert("Text: " + $("#test").text());
 		$("#test1").text("Hello my new life.");
 	});
 	$("#btn2").click(function()
 	{
-		// alert("Html: " + $("#test").html());
+		alert("Html: " + $("#test").html());
 		$("#test2").html("<b>Hello my new life.</b>");
 	})
 	$("#btn3").click(function()
 	{
-		// alert("Value: " + $("#test1").val());
-		$("#test3").val("Dolly Duck~");
+		alert("Value: " + $("#test1").val());
+		// $("#test3").val("Dolly Duck~");
 	});
 	$("#btn4").click(function()
 	{
@@ -26,16 +29,51 @@ $(document).ready(function()
 	});
 });
 
+
+$(document).ready(function()
+{
+	$("#room1").click(function()
+	{
+		$("#paragraph").append("<b>Appended text</b>.");
+		$("#paragraph").prepend("<b>Prepend text</b>.");
+	});
+	$("#room2").click(function()
+	{
+		$("#list").append("<li>Appended list.</li>");
+		$("#list").prepend("<li>Prepend list.</li>");
+	});
+	$("#room3").click(function()
+	{
+		$("#list").remove();
+	});
+});
+// 在被选元素开头、结尾追加文本的方法。 
+ 
+function appendText()
+{
+	var paragraph01 = "<p>Text.</p>"; // 以 HTML 创建新元素
+	var paragraph02 = $("<p></p>").text("Text."); // 以 jQuery 创建新元素	
+	var paragraph03 = document.createElement("p");
+	paragraph03.innerHTML = "Text."; // 通过 DOM 来创建新元素
+	$("#body01").append(paragraph01,paragraph02,paragraph03); // 对 id＝body01 的段落进行新元素追加
+}
+// 使用函数重复向后添加新元素
+
+function prependText()
+{
+	var paragraph04 = "<p>Add at first.</p>";
+	$("#body01").prepend(paragraph04);
+}
+// 使用函数重复向后添加新元素
+
 </script>
 </head>
 
 <p id="test">
 	<b>This is a progross.</b>
 </p>
-
 <p id="test1">This is the one.</p>
 <p id="test2">This is the second</p>
-
 <p>INPUT: 
 <input type="text" id="test3" value="tingting.zheng">
 </p>
@@ -46,5 +84,27 @@ $(document).ready(function()
 <input id="btn2" type="button" value="display html">
 <button id="btn3">display what you input.</button>
 <button id="btn4">display href value.</button>
+
+<p id="paragraph">This is a paragraph.</p>
+<ol id="list">
+<li>List one.</li>
+<li>List two.</li>
+<li>List three.</li>
+</ol>
+<button id="room1">追加文本</button>
+<button id="room2">追加段落</button>
+<!-- 在被选元素开头、结尾追加文本的方法。  -->
+
+<button id="room3">删除段落</button>
+
+
+<body id="body01">
+<p>This is another paragraph.</p>
+<button onclick = "appendText()">向后追加新元素</button>
+<button onclick = "prependText()">向前追加元素</button>
+</body>
+<!-- 使用函数重复添加新元素 -->
+
+
 
 </html>
