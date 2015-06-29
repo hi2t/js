@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="jquery/jquery-1.11.3.js"></script>
+<script type="text/javascript">
+$(document).ready(function()
+{
+	$("#btn1").click(function()
+	{
+		// alert("Text: " + $("#test").text());
+		$("#test1").text("Hello my new life.");
+	});
+	$("#btn2").click(function()
+	{
+		// alert("Html: " + $("#test").html());
+		$("#test2").html("<b>Hello my new life.</b>");
+	})
+	$("#btn3").click(function()
+	{
+		// alert("Value: " + $("#test1").val());
+		$("#test3").val("Dolly Duck~");
+	});
+	$("#btn4").click(function()
+	{
+		alert($("#facebook").attr("href"));
+	});
+});
+
+</script>
+</head>
+
+<p id="test">
+	<b>This is a progross.</b>
+</p>
+
+<p id="test1">This is the one.</p>
+<p id="test2">This is the second</p>
+
+<p>INPUT: 
+<input type="text" id="test3" value="tingting.zheng">
+</p>
+<p>
+<a href="http://www.facebook.com" id="facebook">facebook.com</a>
+</p>
+<button id="btn1">display text</button>
+<input id="btn2" type="button" value="display html">
+<button id="btn3">display what you input.</button>
+<button id="btn4">display href value.</button>
+
+</html>
