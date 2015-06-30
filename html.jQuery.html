@@ -79,6 +79,60 @@ $(document).ready(function()
 });
 // 向元素添加css类
 
+$(document).ready(function()
+{
+	$("#room9").click(function()
+	{
+		for (var i = 0; i <= 2; i++) {
+		alert("paragraph " + i  + "'s"+ " Background color = " + $(".col").eq(i).css("background-color"));
+		};
+	});
+});
+// 返回css属性值，使用eq遍历css属性
+
+$(document).ready(function()
+{
+	$("#room10").click(function()
+	{
+		$(".col").css({"background-color":"orange","font-size":"200%"});
+	});
+});
+// 设置多种css属性的方法
+
+$(document).ready(function()
+{
+	$("#room11").click(function()
+	{
+		var txt="";
+		txt += "Width of div: " + $("#div2").width() + "</br>";
+		txt += "height of div: " + $("#div2").height() + "</br>"; //返回元素的宽度、高度
+		txt += "Inner width: " + $("#div2").innerWidth() + "</br>";
+		txt += "Inner height: " + $("#div2").innerHeight() + "</br>"; //返回元素的内边距
+		txt += "Outer width: " + $("#div2").outerWidth() + "</br>";
+		txt += "Outer height: " + $("#div2").outerHeight() + "</br>"; //返回元素的外边距
+		$("#div2").html(txt);
+	});
+	$("#room13").click(function()
+	{
+		$("#div2").width(320).height(320);
+	}) // 调整div的尺寸
+});
+// 返回div的尺寸
+
+$(document).ready(function()
+{
+	$("#room12").click(function()
+	{
+		var txt="";
+		txt += "Document width/height: " + $(document).width();
+		txt += "x" + $(document).height() + "\n";
+		txt += "Window width/height: " + $(window).width() + "x" + $(window).height();
+		alert(txt);
+	});
+});
+// 返回文档、窗口的尺寸
+
+
 function appendText()
 {
 	var paragraph01 = "<p>Text.</p>"; // 以 HTML 创建新元素
@@ -172,6 +226,31 @@ This is an improtant paragraph.
 <br>
 <button id="room8">Turn Turn</button>
 <!-- 向元素添加css类 -->
+
+<h2>取css定义颜色值</h2>
+<p class="col" style="background-color:#ff0000">This is a paragraph.</p>
+<p class="col" style="background-color:#00ff00">This is a paragraph.</p>
+<p class="col" style="background-color:#0000ff">This is a paragraph.</p>
+<button id="room9">返回颜色</button>
+<button id="room10">设置多种样式</button>
+<!-- 设置多种css属性 -->
+
+<div 
+id="div2" 
+style="height:120px;width:300px;padding:10px;margin:3px;border:1px solid blue;background-color:lightblue"></div>
+<br>
+<button id="room11">显示div的尺寸</button>
+<!-- 设置div属性，调用方法返回div尺寸 -->
+
+<button id="room13">调整div尺寸</button>
+
+<button id="room12">显示文档和窗口的尺寸</button>
+
+
+
+
+
+
 
 
 
