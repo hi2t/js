@@ -60,7 +60,25 @@ $(document).ready(function()
 	
 });
 // 在被选元素开头、结尾追加文本的方法。 
- 
+
+$(document).ready(function()
+{
+	$("#room6").click(function()
+	{
+		$(".watch").addClass("blue");
+		$(".div01").addClass("important");
+	});
+	$("#room7").click(function()
+	{
+		$(".watch").removeClass("blue");
+	});
+	$("#room8").click(function()
+	{
+		$(".watch").toggleClass("blue");
+	});
+});
+// 向元素添加css类
+
 function appendText()
 {
 	var paragraph01 = "<p>Text.</p>"; // 以 HTML 创建新元素
@@ -79,8 +97,21 @@ function prependText()
 // 使用函数重复向后添加新元素
 
 </script>
-</head>
 
+<style type="text/css">
+.important
+{
+font-weight:bold;
+font-size:xx-large;
+}
+.blue
+{
+color:blue;
+}
+</style>
+<!-- 定义css类特征 -->
+
+</head>
 <p id="test">
 	<b>This is a progross.</b>
 </p>
@@ -127,5 +158,22 @@ function prependText()
 <p id="po" class="italic"><i>This is the first italic paragraph.</i></p>
 <p id="po" class="italic"><i>This is the second italic paragraph.</i></p>
 <button id="room5">清除斜体段落</button>
+
+<h1 class="watch">First Title.</h1>
+<h2 class="watch">Second Title.</h2>
+<p class="watch">Small paragraph.</p>
+<div class="div01">
+This is an improtant paragraph.
+</div>
+<br>
+<button id="room6">Add Class</button>
+<br>
+<button id="room7">Remove blue css</button>
+<br>
+<button id="room8">Turn Turn</button>
+<!-- 向元素添加css类 -->
+
+
+
 
 </html>
