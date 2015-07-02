@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+<style type="text/css">
+.ancestors *
+{
+	display: block;
+	border: 2px solid lightgrey;
+	color: lightgrey;
+	padding: 5px;
+	margin: 15px;
+}
+
+.siblings *
+{
+	display: block;
+	border: 1px solid wheat;
+	color: wheat;
+	padding: 4px;
+	margin: 12px;
+}
+
+</style>
+
+<script src="jquery/jquery-1.11.3.js"></script>
+<script type="text/javascript">
+$(document).ready(function()
+{
+	// $("#span1").parent().css({"color":"red","border":"2px solid red"});
+	// $("#span2").parents().css({"color":"red","border":"2px solid red"});
+	$("#span1").parents("ul").css({"color":"red","border":"2px solid red"});
+	$("#span2").parentsUntil("div").css({"color":"blue","border":"2px solid blue"});
+
+});
+// parent、parents的区别
+
+$(document).ready(function()
+{
+	$("#div1").children().css({"color":"yellow","border":"2px solid yellow"});
+	// $("#div1").find("span").css({"color":"yellow","border":"2px solid yellow"});
+	// $("#div1").find("*").css({"color":"yellow","border":"2px solid yellow"});
+
+});
+// 子类，find与children不同，find需指定子类
+ 
+$(document).ready(function()
+{
+	$("#button1").click(function()
+	{
+		$("#div1").children("p.one").css({"color":"orange","border":"2px solid orange"});
+	});
+});
+// 指定找到子类class为one的p元素
+
+$(document).ready(function()
+{
+	$("#button2").click(function()
+	{
+		$("#h2").siblings().css({"color":"cyan","border":"2px solid cyan"});
+	});
+	$("#button3").click(function()
+	{
+		$("#h2").siblings("p").css({"color":"green","border":"2px solid green"});
+	});
+	$("#button4").click(function()
+	{
+		$("#h2").next().css({"color":"pink","border":"2px solid pink"});
+	});
+	$("#button5").click(function()
+	{
+		$("#h2").nextAll().css({"color":"violet","border":"2px solid violet"});
+	});
+	$("#button6").click(function()
+	{
+		$("#h2").nextUntil("#h6").css({"color":"tomato","border":"2px solid tomato"});
+	});
+});
+// 遍历同胞的若干方法
+
+$(document).ready(function()
+	{
+		$("#button7").click(function()
+			{
+				$(".div5").first().css({"background-color":"darkturquoise"});
+			});
+		$("#button8").click(function()
+			{
+				$(".div5").last().css({"color":"skyblue","border":"2px solid skyblue"});
+			});
+	});
+
+$(document).ready(function()
+{
+	$("#button9").click(function()
+	{
+		// for (var i = 0; i <= 4; i++) 
+		// {
+		// 	$(".p9").eq(i).css({"background-color":"mediumpurple"});
+		// };
+		$(".p9").eq(2).css({"background-color":"mediumpurple"});
+	});
+	$("#button10").click(function()
+	{
+		$(".p9").filter(".like").css({"background-color":"lightpink"});
+	});
+	$("#button11").click(function()
+	{
+		$(".p9").not(".like").css({"background-color":"lime"})
+	});
+});
+// 使用eq定向选择
+
+</script>
+</head>
+
+
+<body>
+body (曾曾祖父)
+<div class="ancestors">
+	<div style="width:500px;">
+		div (曾祖父)
+		<ul>
+			ul (祖父)
+			<li>
+				li (直接父)
+				<span id="span1">
+					span
+				</span>
+			</li>
+		</ul>	
+	</div>
+</div>
+<div class="ancestors">
+	<div style="width:500px;">
+		div (祖父)
+		<p>
+			p (直接父)
+			<span id="span2">
+				span
+			</span>
+		</p>
+	</div>
+</div>
+<!-- 寻找祖先 -->
+
+<div id="div1" class="ancestors">
+	div (当前元素)
+	<p class="one">
+		p (子)
+		<span>
+			span (孙)
+		</span>
+	</p>
+	<p class="tow">
+		p (child)
+		<span>
+			span (grandchild)
+		</span>
+	</p>
+</div>
+<button id="button1">find p.one</button>
+
+<div class="siblings">
+	div (father)
+	<p>p</p>
+	<span>span</span>
+	<h2 id="h2">h2</h2>
+	<h3>h3</h3>
+	<h4>h4</h4>
+	<h5>h5</h5>
+	<h6 id="h6">h6</h6>
+	<p>p</p>
+</div>
+<button id="button2">find h2's siblings</button>
+<button id="button3">find h2's p</button>
+<button id="button4">find h2's next</button>
+<button id="button5">find h2's nextall</button>
+<button id="button6">find h2 to h6</button>
+<!-- 遍历同胞的方法 -->
+
+<h1>Welcome my Homepage</h1>
+<div class="div5 ancestors">
+<p>This is the first paragraph.</p>
+</div>
+
+<div class="div5 ancestors">
+<p>This is another first paragraph.</p>
+</div>
+<button id="button7">Find first</button>
+<button id="button8">Find last</button>
+<br>
+
+<div class="ancestors">
+<p class="p9">index 0</p>
+<p class="p9 like">index 1</p>
+<p class="p9 like">index 2</p>
+<p class="p9 like">index 3</p>
+<p class="p9">index 4</p>
+</div>
+<button id="button9">Find what you want to find</button>
+<button id="button10">Find like</button>
+<button id="button11">Find no like</button>
+
+
+</body>
+</html>
